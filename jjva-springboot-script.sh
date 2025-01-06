@@ -19,10 +19,10 @@ kubectl -n ibm-ucd get deploy ${mss_pod_app} > /dev/null
 
 if [[ $? -ne 0 ]]; then
     echo "mss pod Dployment ${mss_pod_app} doesn't exist,Appying kubectl commands"
-    kubectl -n ibm-ucd apply -f springboot_manifest.yml
+    kubectl -n ibm-ucd apply -f jjva-springboot-manfest.yml
 else
   echo "Deploying latest springboot version"
-  kubectl -n ibm-ucd apply -f springboot_manifest.yml
+  kubectl -n ibm-ucd apply -f jjva-springboot-manfest.yml
   echo "Here is the version ${mss_pod_app} Deployed"
 fi
 #!/bin/bash
