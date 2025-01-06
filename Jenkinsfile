@@ -54,6 +54,7 @@ pipeline {
       sh 'mvn clean package'
        }
     }
+
    //hardcoded in pom.xml file
     // stage ('SonarQubeReport') {
     //   steps {
@@ -61,13 +62,23 @@ pipeline {
     // }
     //  }
 
-  stage ('SonarQube Plugin Report') {
-       steps {
-         withSonarQubeEnv('SonarQubeAccessToken') {
-         sh "mvn clean package sonar:sonar"
-          }
+  stage('SonarQubeReport') {
+      steps{
+        sh "mvn clean package sonar:sonar \
+            -Dsonar.projectKey=jjva-mss-mdb-springboot-app \
+             -Dsonar.projectName='jjva-mss-mdb-springboot-app' \
+              -Dsonar.host.url=http://35.231.106.174:9000 \
+               -Dsonar.token=sqp_d541888f957f1368817d6c4b63018291bc0f696e"
+           }
         }
-      }
+
+  // stage ('SonarQube Plugin Report') {
+  //      steps {
+  //        withSonarQubeEnv('SonarQubeAccessToken') {
+  //        sh "mvn clean package sonar:sonar"
+  //         }
+  //       }
+  //     }
 
       stage("publish to nexus") {
           steps {
