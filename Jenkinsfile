@@ -67,7 +67,7 @@ pipeline {
         sh "mvn clean package sonar:sonar \
             -Dsonar.projectKey=jjva-mss-mdb-springboot-app \
              -Dsonar.projectName='jjva-mss-mdb-springboot-app' \
-              -Dsonar.host.url=http://35.231.106.174:9000 \
+              -Dsonar.host.url=http://34.23.173.91:9000 \
                -Dsonar.token=sqp_d541888f957f1368817d6c4b63018291bc0f696e"
            }
         }
