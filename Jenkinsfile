@@ -68,7 +68,7 @@ pipeline {
             -Dsonar.projectKey=jjva-mss-mdb-springboot-app \
              -Dsonar.projectName='jjva-mss-mdb-springboot-app' \
               -Dsonar.host.url=http://34.138.102.99:9000 \
-               -Dsonar.token=sqp_db11ea5f16674caeb3bafc7ae4c9d760dd24d042"
+               -Dsonar.token=sqp_c680c4b714aaea186a54ed4498f3a662633299dd"
            }
         }
 
