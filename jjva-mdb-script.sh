@@ -12,15 +12,15 @@ imageName="mongo"
 echo $mss_pod_app
 echo $serviceName
 echo $imageName
-# #kubectl create ns ibm-ucd
-kubectl -n ibm-ucd get deploy ${mss_pod_app} > /dev/null
+# #kubectl create ns jjva-ns-svc-pod
+kubectl -n jjva-ns-svc-pod get deploy ${mss_pod_app} > /dev/null
 
 if [[ $? -ne 0 ]]; then
     echo "mss pod Dployment ${mss_pod_app} doesn't exist,Appying kubectl commands"
-    kubectl -n ibm-ucd apply -f jjva-mdb-manifest.yml
+    kubectl -n jjva-ns-svc-pod apply -f jjva-mdb-manifest.yml
 else
   echo "app is running applying,is mongodb"
-  kubectl -n ibm-ucd apply -f jjva-mdb-manifest.yml
+  kubectl -n jjva-ns-svc-pod apply -f jjva-mdb-manifest.yml
   echo "Here is pod ${mss_pod_app} latest deployed successfully"
 fi
 #!/bin/bash

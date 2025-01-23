@@ -7,6 +7,6 @@ if [[ $? -ne 0 ]]; then
     kubectl apply -f cmSecret-ns.yml
 else
   echo "Namespace already exist please proceed"
- #kubectl -n ibm-ucd rollout undo deploy ${mss_pod_app}
+ #kubectl -n jjva-ns-svc-pod rollout undo deploy ${mss_pod_app}
  #echo "Deployment ${mss_pod_app} Rollout is Success"
 fi
