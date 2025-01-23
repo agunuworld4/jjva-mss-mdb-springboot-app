@@ -20,6 +20,9 @@ pipeline {
 
   environment {
     BUILD_NUMBER = "${env.BUILD_ID}"
+    jjva_mdb_sonar_token="sqp_c680c4b714aaea186a54ed4498f3a662633299dd"
+    //Sonareqube externalIP Idress
+    sonarIP="34.75.8.35"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-mdb-springboot-app"
     //eagunu dockerhub registry
@@ -32,7 +35,7 @@ pipeline {
     // This can be http or https
     NEXUS_PROTOCOL = "http"
     // Where your Nexus is running
-    NEXUS_URL = "35.226.17.212:8081"
+    NEXUS_URL = "34.29.3.243:8081"
     // Repository where we will upload the artifact
     NEXUS_REPOSITORY = "jjva-mss-mdb-springboot-app"
     // Jenkins credential id to authenticate to Nexus OSS
@@ -64,11 +67,7 @@ pipeline {
 
   stage('SonarQubeReport') {
       steps{
-        sh "mvn clean verify sonar:sonar \
-            -Dsonar.projectKey=jjva-mss-mdb-springboot-app \
-             -Dsonar.projectName='jjva-mss-mdb-springboot-app' \
-              -Dsonar.host.url=http://34.138.102.99:9000 \
-               -Dsonar.token=sqp_c680c4b714aaea186a54ed4498f3a662633299dd"
+        sh "mvn clean clean package sonar:sonar -Dsonar.projectKey=jjva-mss-mdb-springboot-app -Dsonar.projectName='jjva-mss-mdb-springboot-app' -Dsonar.host.url=http://${sonarIP}:9000 -Dsonar.token=${jjva_mdb_sonar_token}"
            }
         }
 
