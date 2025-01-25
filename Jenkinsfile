@@ -26,8 +26,8 @@ pipeline {
     graName="grafana"
     //website url properties
     webSite="http://mdb.eagunu4live.com"
-    sonarIP="http://34.148.62.212"
-    nexusIP="http://34.68.125.161"
+    sonarIP="http://35.229.80.79"
+    nexusIP="http://34.121.109.88"
     promeLink="http://prm.eagunu4live.com"
     grafanaURL="http://gra.eagunu4live.com"
     alertURL="http://mrg.eagunu4live.com"
