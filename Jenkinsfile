@@ -40,7 +40,7 @@ pipeline {
     BUILD_NUMBER = "${env.BUILD_ID}"
     jjva_mdb_sonar_token="sqp_c680c4b714aaea186a54ed4498f3a662633299dd"
     //Sonareqube externalIP Idress
-    sonarIP="34.75.8.35"
+    //sonarIP="34.75.8.35"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-mdb-springboot-app"
     //eagunu dockerhub registry
