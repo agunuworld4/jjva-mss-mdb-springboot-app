@@ -2,9 +2,7 @@
 //@Library('Slack-us-east-jenkins-master_snow_prod') _
 
 pipeline {
-
   agent { label 'jjva-google-jenkins-slave' }
-
   options {
        buildDiscarder logRotator(
            artifactDaysToKeepStr: '5',
@@ -13,12 +11,32 @@ pipeline {
            numToKeepStr: '5')
           timestamps()
         }
-
   tools {
       maven 'UI_Maven3..9.9'
   }
-
   environment {
+    //Apps environments properties
+    myApp="mss-springboot-app"
+    sonarName="jjva-mss-mdb-springboot-app"
+    dockerName="jjva-mss-mdb-springboot-app"
+    nexusName="jjva-mss-mdb-springboot-app"
+    promeName="prometheus-server"
+    alertM="prometheus-alertmanager"
+    alertName="prometheus-alertmanager"
+    graName="grafana"
+    //website url properties
+    webSite="http://eagunu4live.com"
+    sonarIP="http://34.148.62.212"
+    nexusIP="http://34.68.125.161"
+    promeLink="http://prm.eagunu4live.com"
+    grafanaURL="http://gra.eagunu4live.com"
+    alertURL="http://mrg.eagunu4live.com"
+    alartLink="http://mgr.eagunu4live.com"
+    dockerlink="https://hub.docker.com/repository/docker/eagunuworld/jjva-mss-mdb-springboot-app"
+    //Codes environment properties
+    GIT_COMMIT = "${GIT_COMMIT}"
+    GIT_BRANCH="${GIT_BRANCH}"
+    GIT_PREVIOUS_SUCCESSFUL_COMMIT   = "${GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
     BUILD_NUMBER = "${env.BUILD_ID}"
     jjva_mdb_sonar_token="sqp_c680c4b714aaea186a54ed4498f3a662633299dd"
     //Sonareqube externalIP Idress
