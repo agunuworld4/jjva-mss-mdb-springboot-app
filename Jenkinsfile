@@ -40,7 +40,7 @@ pipeline {
     BUILD_NUMBER = "${env.BUILD_ID}"
     jjva_mdb_sonar_token="sqp_c680c4b714aaea186a54ed4498f3a662633299dd"
     //Sonareqube externalIP Idress
-    //sonarIP="34.75.8.35"
+    SonarIP="35.229.80.79"
     //eagunu docker registry repository
     registry = "eagunuworld/jjva-mss-mdb-springboot-app"
     //eagunu dockerhub registry
@@ -85,7 +85,7 @@ pipeline {
 
   stage('SonarQubeReport') {
       steps{
-        sh "mvn clean clean package sonar:sonar -Dsonar.projectKey=jjva-mss-mdb-springboot-app -Dsonar.projectName='jjva-mss-mdb-springboot-app' -Dsonar.host.url=http://${sonarIP}:9000 -Dsonar.token=${jjva_mdb_sonar_token}"
+        sh "mvn clean clean package sonar:sonar -Dsonar.projectKey=jjva-mss-mdb-springboot-app -Dsonar.projectName='jjva-mss-mdb-springboot-app' -Dsonar.host.url=http://${SonarIP}:9000 -Dsonar.token=${jjva_mdb_sonar_token}"
            }
         }
 
