@@ -1,5 +1,5 @@
 //${library.jenkins-slack-library.version}
-//@Library('Slack-us-east-jenkins-master_snow_prod') _
+@Library('jjva-canada-channels') _
 
 pipeline {
   agent { label 'jjva-google-jenkins-slave' }
