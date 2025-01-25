@@ -206,28 +206,17 @@ pipeline {
   //     }
 
  }  //This line end the pipeline stages
-  //post {   //This line start the post script this line should be uncommittted
-        //always { this line should be uncommittted
-          //junit 'target/surefire-reports/*.xml'
-         // jacoco execPattern: 'target/jacoco.exec'
-        // pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
-         //dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-         //publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP ZAP HTML Report', reportTitles: 'OWASP ZAP HTML Report'])
-
-         //Use sendNotifications.groovy from shared library and provide current build result as parameter
-         //sendNotification currentBuild.result this line should be uncommittted
-       // } this line should be uncommittted
-
-    //success {
-      //script {
-        /* Use slackNotifier.groovy from shared library and provide current build result as parameter */
-        //env.failedStage = "none"
-        //env.emoji = ":white_check_mark: :tada: :thumbsup_all:"
-        //sendNotification currentBuild.result
-      //}
-      //}
+  post {   //This line start the post script uncommit later
+    success {
+      script {
+        //* Use slackNotifier.groovy from shared library and provide current build result as parameter */
+        env.failedStage = "none"
+        env.emoji = ":white_check_mark: :tada: :thumbsup_all:"
+        sendNotification currentBuild.result
+      }
+      }
 
     // failure {
     //}
-  //}  //this line close post script stage this line should be uncommittted
+  }  //this line close post script stage
 }    //This line close the jenkins pipeline
